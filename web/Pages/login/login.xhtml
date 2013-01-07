@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>login</title>
+    </h:head>
+    <h:body>
+        <h:form id="form"> 
+        <p:panel id="compte" header="Connexion" style="width: 50%;margin-left: 150px;margin-top: 50px">
+            <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
+            <h:panelGrid id="grid"  columns="2" style="margin-bottom:10px"> 
+                <h:outputLabel for="identifiant" value="Identifiant:  " />  
+                <p:inputText id="identifiant" value="#{UtilisateurBean.identifiant}"/>  
+                <h:outputLabel for="pwd1" value="Mot de passe: " />  
+                <p:password id="pwd1" label="Password" required="true" value="#{UtilisateurBean.motPasse}"/> 
+                <p:commandButton value="Connexion" id="connexion" action="#{UtilisateurBean.conexion}" update="compte" ajax="false" />
+                <h:link outcome="/Pages/inscription/inscription" value="s'inscrire" style="color: red"/>
+            </h:panelGrid>
+            <h:outputLabel for="identifiant" value="#{UtilisateurBean.connexion}"  /> 
+        </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

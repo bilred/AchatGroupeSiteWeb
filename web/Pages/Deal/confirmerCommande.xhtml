@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Confirmer commande</title>
+        <link type="text/css" rel="stylesheet" href="../Style/deal/confirmerCommande.css" />
+    </h:head>
+    <h:body>
+        <p:panel id="myCommande" header="Votre commande">
+            <h:panelGrid columns="4" cellpadding="10" cellspacing="30">
+                <h:outputLabel value="Deal choisi:" />
+                <h:outputLabel value="Nombre:" />
+                <h:outputLabel value="Prix par deal:" />
+                <h:outputLabel value="total:" />
+                <h:outputText value="//////"/>
+                <p:selectOneMenu  effect="fade" >  
+                <f:selectItems value="AA" var="nombre" itemValue="AA"/>
+                </p:selectOneMenu>
+                <h:outputText value="//////"/>
+                <h:outputText value="//////"/>
+            </h:panelGrid>
+        </p:panel>
+        <p:panel id="payement" header="Payement">
+            <div id="payement1">
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="1">  
+                <h:outputLabel value="Mode de payement : " />  
+                <p:selectOneRadio id="options"  >  
+                    <f:selectItem itemLabel="CB     -" itemValue="CB" />  
+                    <f:selectItem itemLabel="VISA" itemValue="VISA" />  
+                </p:selectOneRadio>  
+            </h:panelGrid>  
+
+            <h:outputLabel value="Numéro de la carte "/>
+            <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="1"> 
+                <p:inputText maxlength="4" id="inputT">
+                    <f:validateLength  minimum="4"/>
+                </p:inputText>
+                <p:inputText  maxlength="4" id="inputT">
+                    <f:validateLength  minimum="4"/>
+                </p:inputText> 
+                <p:inputText maxlength="4" id="inputT">
+                    <f:validateLength minimum="4"/>
+                </p:inputText>
+                <p:inputText maxlength="4" id="inputT">
+                    <f:validateLength  minimum="4"/>
+                </p:inputText>
+            </h:panelGrid>
+            <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="1">
+                <h:outputLabel value="Cryptogramme "/>
+                <p:inputText  maxlength="3" id="inputT" >
+                    <f:validateLength minimum="3"/>
+                </p:inputText>
+            </h:panelGrid>
+            <h:outputLabel value="Expire fin "/>
+            <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="1">
+                <p:selectOneMenu  effect="fade" >  
+                    <f:selectItems value="#{autoCompleteBean.mois}" var="mois" itemValue="#{mois}"/>  
+                </p:selectOneMenu> 
+                <p:selectOneMenu  effect="fade" >  
+                    <f:selectItems value="#{autoCompleteBean.annee}" var="annee" itemValue="#{annee}"/>  
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <div style="text-align: right">
+                <p:commandButton value="Confirmer la commande" update="myCommande,payement" ></p:commandButton>
+            </div>
+           </div>
+        </p:panel>
+
+    </h:body>
+</html>
+

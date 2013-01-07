@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>INSCRIPTION</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1><h:outputText value="Inscription"/></h1>
+            <h:messages style="color: blue"/>
+            <h:form id="form"> 
+
+                <p:panel id="compte" header="Compte utilisateur" style="width: 50%;margin-left: 150px;margin-top: 50px">
+                    <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
+                    <h:panelGrid id="grid" columns="2" style="margin-bottom:10px">  
+                        <h:outputLabel for="identifiant" value="Identifiant:  *" />  
+                        <p:inputText id="identifiant" value="#{UtilisateurBean.identifiant}"/>  
+                        <h:outputLabel for="pwd1" value="Mot de passe: *" />  
+                        <p:password id="pwd1" match="pwd2" label="Password 1" required="true" value="#{UtilisateurBean.motPasse}" />  
+                        <h:outputLabel for="pwd2" value="confirme mot de passe: *" />  
+                        <p:password id="pwd2" label="Password 2" required="true"  /> 
+
+
+                    </h:panelGrid>
+                </p:panel>
+                <p:panel id="information" header="Informations utilisateur" style="width: 50%;margin-left: 150px">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="nom" value="Nom : *" />  
+                        <p:inputText id="nom" required="true" label="Nom" value="#{UtilisateurBean.nom}" >  
+                            <f:validateLength minimum="4" />  
+                        </p:inputText>  
+
+                        <h:outputLabel for="prenom" value="Prenom : *" />  
+                        <p:inputText id="prenom" required="true" label="Prenom" value="#{UtilisateurBean.prenom}" >  
+                            <f:validateLength minimum="3" />  
+                        </p:inputText>  
+                        <h:outputText value="Sexe : " />  
+                        <p:selectOneRadio id="options" value="#{UtilisateurBean.titre}">  
+                            <f:selectItem itemLabel="Homme" itemValue="1" />  
+                            <f:selectItem itemLabel="Femme" itemValue="2" />  
+                        </p:selectOneRadio>
+                        <h:outputLabel for="ville" value="Ville : *" />  
+                        <p:inputText id="ville" required="true" label="Ville" value="#{UtilisateurBean.ville}">  
+                            <f:validateLength minimum="3" />  
+                        </p:inputText>
+
+                        <h:outputLabel for="email" value="Email : *" /> 
+                        <h:inputText id="email" value="#{UtilisateurBean.email}" required="true" label="Email" validatorMessage="email is not valid">
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        </h:inputText>
+                        <h:outputLabel for="phone" value="Téléphone : *" /> 
+                        <h:inputText id="phone" value="#{UtilisateurBean.teletphone}" required="true" label="phone" validatorMessage="phone is not valid">
+                            <f:validateRegex pattern="[0-9][0-9]*" />
+                            <f:validateLength minimum="10" maximum="10"/>
+                        </h:inputText>
+                        <h:outputText value="Date de naissance: " />  
+                        <p:calendar  id="popupButtonCal" showOn="button" value="#{UtilisateurBean.dateNaissance}" />
+                <h:outputText   id="birthday"  >  
+                    <f:convertDateTime pattern="d/M/yyyy "  />  
+                </h:outputText>
+                    </h:panelGrid>
+                </p:panel>
+                <p:commandButton value="Enregistrer"  id="enregister" action="inscription" style="margin-left: 150px;margin-top: 10px" />
+            </h:form>
+
+        </f:view>
+    </h:body>
+</html>
+

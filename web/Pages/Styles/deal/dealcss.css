@@ -1,0 +1,31 @@
+/* 
+    Document   : dealcss
+    Created on : 5 janv. 2013, 01:12:30
+    Author     : nora
+    Description:
+        Purpose of the stylesheet follows.
+*/
+#produit{
+    width: 420px;
+    height: 340px;
+}
+#imageProduit{
+    width: 385px;
+    height:220px;
+}
+
+#deal{
+    text-align: right;
+}
+
+#description{
+    float: left;
+    margin-left: 14px;  
+    width: 280px;
+}
+
+#dealButton{
+    background-color: #aabb14;
+    width: 80px;
+    height: 35px;
+}

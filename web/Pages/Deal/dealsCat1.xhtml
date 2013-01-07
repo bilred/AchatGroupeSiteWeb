@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <p:tabMenu activeIndex="0">  
+    <p:menuitem value="Catégorie 1" url="dealsCat1.xhtml" icon="ui-icon-star"/> 
+    <p:menuitem value="Catégorie 2" url="dealsCat1.xhtml" icon="ui-icon-search" />  
+    <p:menuitem value="Catégorie 3" url="dealsCat1.xhtml" icon="ui-icon-document"/>  
+    <p:menuitem value="Catégorie 4" url="dealsCat1.xhtml" icon="ui-icon-wrench"/>  
+</p:tabMenu> 
+        
+        <h:panelGrid columns="1" cellpadding="4">
+            
+            <c:forEach begin="1" end="2">
+                <div style="alignment-adjust: central">
+                 <IFRAME SRC="deal.xhtml" width="600" height="450" > </IFRAME>
+                </div>
+                
+            </c:forEach>
+             
+        </h:panelGrid>
+             
+    </h:body>
+</html>
+
