@@ -21,7 +21,7 @@ public class TestClient {
      */
     public static void main(String[] args) {
         UtilisateurRestfulClient ut=new UtilisateurRestfulClient();
-       UtilisateurJSON uti=new UtilisateurJSON();
-       System.out.println( uti.checkIdentifiant("zimaghri", "zakaria"));
+      OffreJSON uti=new OffreJSON();
+    uti.getProduit("2");
         }
 }

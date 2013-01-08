@@ -1,4 +1,4 @@
-package controleur;
+package org.primefaces.examples.view;
 
 
 import java.util.ArrayList;
@@ -18,12 +18,30 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean (name= "autoCompleteBean")
 public class AutoCompleteBean {
     private List<String> mois;  
-    private List<String> annee; 
+    private List<String> annee;
+    private List<Integer> nombre;
     @PostConstruct  
     public void init() {  
         mois = new ArrayList<String>();  
         annee = new ArrayList<String>();
-       
+               nombre = new ArrayList<Integer>();
+
+               
+               nombre.add(1);
+               nombre.add(2);
+               nombre.add(3);
+               nombre.add(4);
+               nombre.add(5);
+               nombre.add(6);
+               nombre.add(7);
+               nombre.add(8);
+               nombre.add(9);
+               nombre.add(10);
+               
+               
+               
+               
+               
             mois.add("janvier");  
             mois.add("février");  
             mois.add("mars");  
@@ -49,5 +67,8 @@ public class AutoCompleteBean {
     }
     public List<String> getAnnee() {  
         return annee;  
+    }
+     public List<Integer> getNombre() {  
+        return nombre;  
     }
 }

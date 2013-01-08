@@ -38,4 +38,42 @@ public class OffreJSON {
        offre.addProperty("description", "bismillah");
         client.create_JSON(offre.toString());
     }
+    
+    
+    public JsonObject getProduit(String id){
+        OffreRestfulClient client=new OffreRestfulClient();
+     String response=client.findAll_JSON(String.class);
+        JsonParser parser = new JsonParser();
+        Object offres = parser.parse(response);
+        JsonObject offresJSON = (JsonObject) offres;
+        JsonArray offresArray = (JsonArray) offresJSON.get("offre");
+        
+        for (int i = 0; i < offresArray.size(); i++) {
+            JsonObject Offre = (JsonObject) offresArray.get(i);
+            if(Offre.get("idOffre").getAsString().equals(id)){
+            return Offre.get("produitidProdui").getAsJsonObject();
+            
+            }
+    }
+    return null;
+    
+    }
+     public JsonObject getOffre(String id){
+        OffreRestfulClient client=new OffreRestfulClient();
+     String response=client.findAll_JSON(String.class);
+        JsonParser parser = new JsonParser();
+        Object offres = parser.parse(response);
+        JsonObject offresJSON = (JsonObject) offres;
+        JsonArray offresArray = (JsonArray) offresJSON.get("offre");
+        
+        for (int i = 0; i < offresArray.size(); i++) {
+            JsonObject Offre = (JsonObject) offresArray.get(i);
+            if(Offre.get("idOffre").getAsString().equals(id)){
+            return Offre;
+            
+            }
+    }
+    return null;
+    
+    }
 }

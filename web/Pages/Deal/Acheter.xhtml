@@ -5,62 +5,46 @@
       xmlns:p="http://primefaces.org/ui"
         xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Deal</title>
     </h:head>
     <h:body>
-        <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="50" resizable="true" closable="true" collapsible="true">
+        
+ 
+           
+               
+            
 
-                <p:row>
-                    <p:column colspan="7"> nom du produit</p:column>
-                </p:row>
-
-            </p:layoutUnit>
-
-
-            <p:layoutUnit position="west" size="500" >
-                <p:galleria value="#{galleriaBean.images}" var="image">  
-                    <p:graphicImage value="/images/galleria/#{image}" />  
+           
+        <p:panel id="panel2" header="#{DealBean.nomOffre}" style="margin-bottom:10px;" >
+                   <p:galleria value="#{galleriaBean.images}" var="image">  
+                    <p:graphicImage value="../images/galleria/#{image}" />  
                 </p:galleria>
-            </p:layoutUnit>
-            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-
-                <p:column colspan="7" filterPosition="right">
-                    <div style="text-align: right">
-                        <p:button value="Acheter"></p:button>
-                    </div>
-                </p:column>
-            </p:layoutUnit>
-
-            <p:layoutUnit position="center" >
-                <p:panel id="panel2" header="Déscription" style="margin-bottom:10px;" >
-                    //
-                    //
-                    //
-                    //
-                    //
-                    //
-
+                    <h3> #{DealBean.descriptionOffre}</h3>
                 </p:panel>
-            </p:layoutUnit>
+           
 
-            <p:layoutUnit position="east" size="400">
+           
                 <h:form id="form">
                     <p:panel id="panel" header="Deal" style="margin-bottom:10px;" >
                         <h:panelGrid columns="2" cellpadding="3">  
                             <h:outputLabel value="Prix:" />  
-                            //
+                            #{DealBean.prix}
                             <h:outputLabel value="Temps restant:" />  
-                            //
+                           #{DealBean.tempRest}
                             <h:outputLabel value="Nombre d'acheteur:" />  
-                            //
+                            #{DealBean.nbAchteur}
                         </h:panelGrid> 
 
                     </p:panel>
 
                 </h:form>
-            </p:layoutUnit>
-        </p:layout>
+             <p:column colspan="7" filterPosition="right">
+                    <div style="text-align: right">
+                        <p:button value="Acheter"></p:button>
+                    </div>
+             </p:column>
+            
+      
     </h:body>
 </html>
 

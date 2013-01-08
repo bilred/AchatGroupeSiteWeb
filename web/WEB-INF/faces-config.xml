@@ -10,7 +10,7 @@
         <from-view-id>/Pages/Deal/deal.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>acheter</from-outcome>
-            <to-view-id>/Pages/Deal/confirmerCommande.xhtml</to-view-id>
+            <to-view-id>/Pages/Deal/Acheter.xhtml</to-view-id>
         </navigation-case>
        </navigation-rule>
        <navigation-rule>
@@ -27,5 +27,11 @@
         <managed-bean-class>controleur.UtilisateurBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>DealBean</managed-bean-name>
+        <managed-bean-class>controleur.DealBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+   
     
 </faces-config>

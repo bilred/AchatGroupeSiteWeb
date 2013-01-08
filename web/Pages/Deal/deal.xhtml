@@ -9,21 +9,21 @@
     </h:head>
     <h:body>
         <h:form id="form"> 
-        <p:panel header="nom du produit" id="produit" >
+            <p:panel header="#{DealBean.nomProduit}" id="produit" style="width: 37%" >
             <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
             <p:graphicImage id="imageProduit" value="../images/image1.jpg"></p:graphicImage>
                 <table>  
                 <tr>
                     <td>
                         <div id="description">
-                            <p>description:</p>
-                            <p>prix:</p>
+                            <p>description: #{DealBean.descriptionProduit}</p>
+                            <p>prix: #{DealBean.prix}</p>
                         </div>
                     </td>
                     <td>
                         <div id="deal">
                            
-                            <p:commandButton value="Connexion" id="Deal" action="acheter" update="compte" ajax="false" />
+                            <p:commandButton value="Deal" id="Deal" action="acheter" update="compte" ajax="false" />
                            
                         </div>
                     </td>
