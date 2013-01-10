@@ -8,16 +8,16 @@
        
     </h:head>
     <h:body>
-         
+         <c:set var="cate" scope="view" value="#{cate}" />
         <h:panelGrid columns="1" >
            
             
-            <c:forEach begin="1" end="#{managedDealBean.doneCategorie('1').size}" var="i">
+            <c:forEach begin="1" end="#{managedDealBean.doneCategorie(cate).size}" var="i">
                 
                 <div>
                     <ui:include src="deal.xhtml"  >
                    <ui:param name="id"  value="#{i}"  />
-                   <ui:param name="cat"  value="1"  />
+                   <ui:param name="cat"  value="#{cate}"  />
                     </ui:include>
        
                 </div>

@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <head>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
         <title>Catégorie 2</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="../css/images/favicon.ico" />
@@ -16,7 +17,7 @@
                 <script src="js/DD_belatedPNG-min.js" type="text/javascript" charset="utf-8"></script>
         <![endif]-->
         <script src="../js/functions.js" type="text/javascript" charset="utf-8"></script>
-    </head>
+    </h:head>
     <body>
         <!-- Begin Wrapper -->
         <div id="wrapper">
@@ -46,8 +47,8 @@
                 <div id="navigation">
                     <ul>
                         <li class="first"><a href="home.xhtml" title="Home"><span>Home</span></a></li>
-                        <li ><a href="categorie1.xhtml" title="Catégorie 1"><span>Catégorie 1</span></a></li>
-                        <li><a href="categorie2.xhtml"  class="active" title="Catégorie 2"><span>Catégorie 2</span></a></li>
+                        <li ><a href="categorie1.xhtml" title="Shopping"><span>Shopping</span></a></li>
+                        <li><a href="categorie2.xhtml"  class="active" title="Voyage"><span>Voyage</span></a></li>
                         <li><a href="categorie3.xhtml" title="Catégorie 3"><span>Catégorie 3</span></a></li>
                         <li><a href="categorie4.xhtml" title="Catégorie 4"><span>Catégorie 4</span></a></li>
                     </ul>
@@ -127,9 +128,11 @@
                         <!-- Begin Inner -->
                         <div class="inner">
                             <div id="products">
-                                <h2>Catégorie 2</h2>
-                                <div class="espace">
-                                    
+                                <h2>Voyage</h2>
+                                <div class="espac">
+                                    <ui:include src="/Pages/Deal/Test.xhtml"  >
+                                     <ui:param name="cate"  value="2"  />
+                                    </ui:include>
                                 </div>
                                 
                             </div>
