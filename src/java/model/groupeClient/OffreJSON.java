@@ -7,6 +7,7 @@ package model.groupeClient;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.LinkedList;
 import model.restfulclient.OffreRestfulClient;
 
 
@@ -76,4 +77,28 @@ public class OffreJSON {
     return null;
     
     }
+     public LinkedList<String> getOffreByCategorie(String id){
+         OffreRestfulClient client=new OffreRestfulClient();
+     String response=client.findAll_JSON(String.class);
+        JsonParser parser = new JsonParser();
+        Object offres = parser.parse(response);
+        JsonObject offresJSON = (JsonObject) offres;
+        JsonArray offresArray = (JsonArray) offresJSON.get("offre");
+       
+        LinkedList<String> listOffre=new LinkedList<String>();
+        int j=0;
+        for (int i = 0; i < offresArray.size(); i++) {
+            JsonObject Offre = (JsonObject) offresArray.get(i);
+            if(Offre.get("produitidProdui").getAsJsonObject().get("categorieidCategorie").getAsJsonObject().get("idCategorie").getAsString().equals(id)){
+            listOffre.add(Offre.get("idOffre").getAsString());
+            j++;}
+            
+            }
+        return listOffre;
+    }
+   
+    
+     
+     
+     
 }

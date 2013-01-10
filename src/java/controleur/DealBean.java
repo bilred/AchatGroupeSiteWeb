@@ -5,8 +5,13 @@
 package controleur;
 
 import com.google.gson.JsonObject;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.NoneScoped;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletResponse;
 import model.groupeClient.OffreJSON;
 
 /**
@@ -14,8 +19,10 @@ import model.groupeClient.OffreJSON;
  * @author zakaria
  */
 @ManagedBean(name = "dealBean1")
-@RequestScoped
+@NoneScoped
 public class DealBean {
+    
+    private String idDeal;
     private String nomOffre;
     private String nomProduit;
     private String prix;
@@ -24,6 +31,15 @@ public class DealBean {
     private String tempRest;
     private String nbAchteur;
     private String resultat; 
+public void test(){System.out.print("Zakaria");}
+    public String getIdDeal() {
+        return idDeal;
+    }
+
+    public void setIdDeal(String idDeal) {
+        
+        this.idDeal = idDeal;
+    }
 
     public String getNomOffre() {
         return nomOffre;
@@ -97,16 +113,25 @@ public class DealBean {
 
     public DealBean() {
         OffreJSON offre=new OffreJSON();
-        JsonObject produit = offre.getProduit("2");
+        FacesContext context = FacesContext.getCurrentInstance();
+		Map map = context.getExternalContext().getRequestParameterMap();
+		//String id=(String)map.get("toto");
+
+        this.setIdDeal("1");
+        this.setNomProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("nom").getAsString());
+        this.setPrix(offre.getOffre(getIdDeal()).get("prix").getAsString());
+        this.setDescriptionProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("description").getAsString());
+        this.setDescriptionOffre(offre.getOffre(getIdDeal()).get("description").getAsString());
+        this.setNomOffre(offre.getOffre(getIdDeal()).get("nom").getAsString());
+        this.setNbAchteur(offre.getOffre(getIdDeal()).get("nbAcheteur").getAsString());
+        this.setTempRest(offre.getOffre(getIdDeal()).get("date").getAsString());
         
-        this.setNomProduit(produit.get("nom").getAsString());
-        this.setPrix(offre.getOffre("2").get("prix").getAsString());
-        this.setDescriptionProduit(produit.get("description").getAsString());
-        this.setDescriptionOffre(offre.getOffre("3").get("description").getAsString());
-        this.setNomOffre(offre.getOffre("2").get("nom").getAsString());
-        this.setNbAchteur(offre.getOffre("2").get("nbAcheteur").getAsString());
-        this.setTempRest(offre.getOffre("2").get("date").getAsString());
-        
+    }
+    
+    public DealBean(String id){
+    this.idDeal=id;
+    
+    
     }
 
 }

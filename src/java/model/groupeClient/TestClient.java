@@ -4,6 +4,7 @@
  */
 package model.groupeClient;
 
+import java.util.LinkedList;
 import model.restfulclient.ProduitRestfulClient;
 import model.restfulclient.UtilisateurRestfulClient;
 
@@ -20,8 +21,11 @@ public class TestClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        UtilisateurRestfulClient ut=new UtilisateurRestfulClient();
-      OffreJSON uti=new OffreJSON();
-    uti.getProduit("2");
+     CategorieJSON tata=new CategorieJSON();
+        LinkedList<String> var = tata.idlistCategorie();
+        System.out.println(var.get(1));
+       
+       
+       
         }
 }
