@@ -7,10 +7,12 @@ package controleur;
 
 
 
+import java.awt.Panel;
 import java.awt.TextField;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIComponent;
 import model.groupeClient.UtilisateurJSON;
 
 /**
@@ -31,6 +33,26 @@ public class UtilisateurBean {
     private String motPasse;
    private String reponse;
    private String connexion;
+   private Panel panelUserForm;
+   private boolean affiche;
+
+    public boolean isAffiche() {
+        return affiche;       
+    }
+
+    public void setAffiche(boolean affiche) {
+        this.affiche = affiche;
+    }
+
+    public Panel getPanelUserForm() {
+        return panelUserForm;
+    }
+
+    public void setPanelUserForm(Panel panelUserForm) {
+        this.panelUserForm = panelUserForm;
+    }
+
+   
    
 
    
@@ -129,8 +151,6 @@ public class UtilisateurBean {
     public UtilisateurBean() {
     }
    
-    
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -138,7 +158,9 @@ public class UtilisateurBean {
     public String getNom() {
         return nom;
     }
-    
+    public void enregister(){
+    this.panelUserForm.setVisible(false);
+    }
 
     
 
