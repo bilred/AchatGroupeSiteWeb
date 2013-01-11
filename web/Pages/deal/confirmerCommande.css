@@ -1,0 +1,27 @@
+/* 
+    Document   : confirmerCommande
+    Created on : 5 janv. 2013, 02:54:37
+    Author     : nora
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#myCommande{
+    width: 680px;
+    height: 200px;
+}
+
+#payement{
+    width: 680px;
+    height: 350px;
+}
+
+#payement1{
+    margin-left: 25px;
+}
+
+#inputT{
+    width: 50px;
+    height: 20px;
+}
+

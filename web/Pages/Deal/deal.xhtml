@@ -9,7 +9,7 @@
    
 
     <h:body>
-       <link type="text/css" rel="stylesheet" href="/Pages/Styles/deal/dealcss.css" />
+       <link type="text/css" rel="stylesheet" href="../Styles/deal/dealcss.css" />
         <f:metadata>
             <f:viewParam name="toto" value="1"/>
         </f:metadata>
@@ -24,11 +24,15 @@
                 <table>  
                 <tr>
                     <td rowspan="2">
-                       <p:graphicImage id="imageProduit" value="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}"/>
+                        <p:graphicImage style="width: 350px;height: 280px;" id="imageProduit" value="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}"/>
                     </td>
                     <td>
+                        <br/>
                         <div id="description">
-                            <p><u id="titleD">Description:</u> #{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionProduit}</p>
+                            <p><u id="titleD">Description:</u>
+                                <span id="description1">#{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionProduit}</span> 
+                            </p>
+                            <br/>
                             <p><h3>Prix: #{managedDealBean.doneCategorie(cat).doneDeal(id).prix} €</h3></p>
                         </div>
                     </td>

@@ -50,8 +50,8 @@ h1, h2, h3, h4 { font-family: Verdana, arial, sans-serif; }
 /* Header */
 #header { background: url('images/header-bg.png') no-repeat 0 0; padding: 15px 21px 3px 25px; }
 
-h1#logo { float: left; display: inline; padding-top: 13px; }
-h1#logo a { width: 226px; height: 26px; background: url('images/logo.png') no-repeat 0 0; display: block; }
+h1#logo { float: left; display: inline; padding-top: 7px; }
+h1#logo a { width: 226px; height: 44px; background: url('images/logo.png') no-repeat 0 0; display: block; }
 
 #search { float: right; display: inline; width: 231px; }
 #search form { width: 231px; height: 35px; background: url('images/search-bg.png') no-repeat 0 0; margin-bottom: 3px; }
