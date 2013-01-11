@@ -34,9 +34,10 @@
                     </td>
                     <td>
                         <div id="deal">
-                            <h:outputLink  value="Acheter.xhtml"  >
+                            <h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/Acheter.xhtml"  >
                                 <h:outputText value="Deal" />
-                           <f:param  name="toto" value="#{id}" />
+                           <f:param  name="id" value="#{id}" />
+                           <f:param  name="categorie" value="#{cat}" />
                            </h:outputLink>
                           
                            

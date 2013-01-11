@@ -12,12 +12,13 @@
         
 
 
-        <c:set var="id" scope="view" value="#{param.toto}" />
-        <p:panel id="panel2" header="#{managedDealBean.doneDeal(id).nomOffre}" style="margin-bottom:10px;" >
+        <c:set var="id" scope="view" value="1" />
+        <c:set var="cat" scope="view" value="1" />
+        <p:panel id="panel2" header="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomOffre}" style="margin-bottom:10px;" >
                    <p:galleria value="#{galleriaBean.images}" var="image">  
-                    <p:graphicImage value="../images/galleria/#{image}" />  
+                    <p:graphicImage value="/Pages/images/galleria/#{image}" />  
                 </p:galleria>
-                    <h3> #{managedDealBean.doneDeal(id).descriptionOffre}</h3>
+                    <h3> #{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionOffre}</h3>
                 </p:panel>
            
 
@@ -26,11 +27,11 @@
                     <p:panel id="panel" header="Deal" style="margin-bottom:10px;" >
                         <h:panelGrid columns="2" cellpadding="3">  
                             <h:outputLabel value="Prix:" />  
-                            #{managedDealBean.doneDeal(id).prix}
+                            #{managedDealBean.doneCategorie(cat).doneDeal(id).prix}
                             <h:outputLabel value="Temps restant:" />  
-                          #{managedDealBean.doneDeal(id).tempRest}
+                          #{managedDealBean.doneCategorie(cat).doneDeal(id).tempRest}
                             <h:outputLabel value="Nombre d'acheteur:" />  
-                            #{managedDealBean.doneDeal(id).nbAchteur}
+                            #{managedDealBean.doneCategorie(cat).doneDeal(id).nbAchteur}
                         </h:panelGrid> 
 
                     </p:panel>
