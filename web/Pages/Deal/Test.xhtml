@@ -8,7 +8,7 @@
        
     </h:head>
     <h:body>
-         <c:set var="cate" scope="view" value="#{cate}" />
+         <c:set var="cate" scope="view" value="1" />
         <h:panelGrid columns="1" >
            
             
@@ -16,10 +16,9 @@
                 
                 <div>
                     <ui:include src="deal.xhtml"  >
-                   <ui:param name="id"  value="#{i}"  />
-                   <ui:param name="cat"  value="#{cate}"  />
+                       <ui:param name="id"  value="#{i}"  />
+                       <ui:param name="cat"  value="#{cate}"  />
                     </ui:include>
-       
                 </div>
             </c:forEach>
              
