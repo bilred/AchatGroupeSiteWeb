@@ -7,6 +7,7 @@ package controleur;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import model.groupeClient.OffreJSON;
+import model.groupeClient.PhotoJSON;
 
 /**
  *
@@ -21,7 +22,16 @@ public class DealClass {
     private String descriptionOffre;
     private String tempRest;
     private String nbAchteur;
-    private String resultat; 
+    private String resultat;
+    private String lienImage;
+
+    public String getLienImage() {
+        return lienImage;
+    }
+
+    public void setLienImage(String lienImage) {
+        this.lienImage = lienImage;
+    }
 
     public String getIdDeal() {
         return idDeal;
@@ -109,6 +119,7 @@ public class DealClass {
     public DealClass(String id){
     this.idDeal=id;
     OffreJSON offre=new OffreJSON();
+    PhotoJSON photo=new PhotoJSON();
         
         this.setNomProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("nom").getAsString());
         this.setPrix(offre.getOffre(getIdDeal()).get("prix").getAsString());
@@ -117,6 +128,7 @@ public class DealClass {
         this.setNomOffre(offre.getOffre(getIdDeal()).get("nom").getAsString());
         this.setNbAchteur(offre.getOffre(getIdDeal()).get("nbAcheteur").getAsString());
         this.setTempRest(offre.getOffre(getIdDeal()).get("date").getAsString());
+        this.setLienImage("/Pages/images/"+photo.getPhotoById(photo.getPhotosIdByProduit(getIdDeal()).getFirst()).get("lien").getAsString());
     
     }
     

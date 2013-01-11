@@ -21,10 +21,10 @@ public class TestClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     CategorieJSON tata=new CategorieJSON();
-        LinkedList<String> var = tata.idlistCategorie();
-        System.out.println(var.get(1));
-       
+     PhotoJSON kk=new PhotoJSON();
+     System.out.println(kk.getPhotosIdByProduit("1").getFirst());
+     System.out.println(kk.getPhotoById("1").get("lien").getAsString());
+     
        
        
         }

@@ -23,7 +23,7 @@
             <c:set var="cat" scope="view" value="#{cat}" />
             <p:panel header="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomProduit}"  id="produit"  >
             <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
-            <p:graphicImage id="imageProduit" value="/Pages/images/image1.jpg"></p:graphicImage>
+            <p:graphicImage id="imageProduit" value="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}"></p:graphicImage>
                 <table>  
                 <tr>
                     <td>
