@@ -58,9 +58,9 @@ public class ManagedDealBean {
        
         CategorieJSON categorie=new CategorieJSON();
         this.listeCategorie=new LinkedList<CategorieClasse>();
-       this.idlisteCategorie=categorie.idlistCategorie();
+        this.idlisteCategorie=categorie.idlistCategorie();
         for(int i=0;i<this.idlisteCategorie.size();i++){
-      this.listeCategorie.add(new CategorieClasse(this.idlisteCategorie.get(i)));
+          this.listeCategorie.add(new CategorieClasse(this.idlisteCategorie.get(i)));
         }
         
      

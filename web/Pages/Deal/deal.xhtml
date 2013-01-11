@@ -6,56 +6,58 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
-        
-        
-    
+   
+
     <h:body>
-        <link type="text/css" rel="stylesheet" href="/Pages/Styles/deal/dealcss.css" />
+       <link type="text/css" rel="stylesheet" href="../Styles/deal/dealcss.css" />
         <f:metadata>
             <f:viewParam name="toto" value="1"/>
         </f:metadata>
-      
-       
-    
+
+
+
         <h:form > 
-           <c:set var="id" scope="view" value="#{id}" />
-            <c:set var="cat" scope="view" value="#{cat}" />
-            <p:panel header="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomProduit}"  id="produit"  >
-            <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
-            <p:graphicImage id="imageProduit" value="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}"></p:graphicImage>
+            <c:set var="id" scope="view" value="1" />
+            <c:set var="cat" scope="view" value="1" />
+            <p:panel id="produit" header="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomProduit}" >
+                <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
                 <table>  
                 <tr>
-                    <td>
-                        <div id="description">
-                            <p>description: #{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionProduit}</p>
-                            <p>prix: #{managedDealBean.doneCategorie(cat).doneDeal(id).prix}</p>
-                        </div>
+                    <td rowspan="2">
+                        <p:graphicImage style="width: 350px;height: 280px;" id="imageProduit" value="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}"/>
                     </td>
                     <td>
-                        <div id="deal">
+                        <br/>
+                        <div id="description">
+                            <p><u id="titleD">Description:</u>
+                                <span id="description1">#{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionProduit}</span> 
+                            </p>
+                            <br/>
+                            <p><h3>Prix: #{managedDealBean.doneCategorie(cat).doneDeal(id).prix} €</h3></p>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                     
+                      <td>
+                        
                             <h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/Acheter.xhtml"  >
-                                <h:outputText value="Deal" />
+                                <div id="deal"/>
+                                
                            <f:param  name="id" value="#{id}" />
                            <f:param  name="categorie" value="#{cat}" />
                            </h:outputLink>
-                          
-                           
-                           
-                            
-                        </div>
+                        
                     </td>
-                </tr>
+                 </tr>
             </table>
 
 
 
-                
-                
-                
-            
-         
-        </p:panel>
+
+
+
+            </p:panel>
         </h:form>
     </h:body>
 </html>
