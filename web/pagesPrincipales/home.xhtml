@@ -61,64 +61,9 @@
                     <!-- Begin Slider -->
                     <div id="slider">
                         <!-- Begin Slider Items -->
-                        <div class="slider-items">
-                            <ul>
-                                
-                                <li>
-                                    <img class="image" src="../css/images/galleria/image1.jpg" alt="First Slide Image"  />
-                                    <div class="slide-entry">
-                                        <h2>Ordinateur Portable acer</h2>
-                                        <h3>Prix : 140.0 €</h3>
-                                        <p>Acer Aspire 5250 Ordinateur Portable 15,6" (39,624 cm) AMD Dual-Core Processor E300 750 Go 4 Mo Windows 7 Home Premium 64-bit.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img class="image" src="../css/images/galleria/image2.jpg" alt="Second Slide Image" />
-                                    <div class="slide-entry">
-                                        <h2>Samsung Galaxy Tab</h2>
-                                        <h3>Prix : 230.0 €</h3>
-                                        <p>Samsung Galaxy Tab 2 GT-P5100TSAXEF Tablette 10,1" (25,65 cm) Processeur Dual-Core 16 Go Android Ice Cream Sandwich 4.0 3G Wifi Argent Titanium.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
-                                    </div>
-                                </li>
-                                
-                                 <li>
-                                    <img class="image" src="../css/images/galleria/image3.jpg" alt="Second Slide Image" />
-                                    <div class="slide-entry">
-                                        <h2>Samsung LED</h2>
-                                        <h3>Prix : 222.0 €</h3>
-                                        <p>Samsung - SyncMaster S22B150N - LS22B150NS/EN - Moniteur LCD 22" (56 cm) - LED - VGA.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                        <!-- End Slider Items -->
-                        <!-- Begin Slider Nav -->
-                        <div class="slider-nav">
-                            <ul>
-                                <li class="first">
-                                    <a href="#" title="First Slide">
-                                        <span><img class="image1" src="../css/images/galleria/image1.jpg" alt="First Slide Image" /></span>
-                                    </a>
-                                    <span class="slide-sep">&nbsp;</span>
-                                </li>
-                                <li>
-                                    <a href="#" title="Second Slide">
-                                        <span><img class="image1" src="../css/images/galleria/image2.jpg" alt="Second Slide Image" /></span>
-                                    </a>
-                                    <span class="slide-sep">&nbsp;</span>
-                                </li>
-                                <li class="last">
-                                    <a href="#" title="Third Slide">
-                                        <span><img class="image1" src="../css/images/galleria/image3.jpg" alt="Third Slide Image" /></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="cl">&nbsp;</div>
-                        </div>
+                        <ui:include src="/Pages/Defilement/defilement.xhtml"  >
+                            <ui:param name="cate"  value="1"  />
+                        </ui:include>
                         <!-- End Slider Nav -->
                     </div>
                     <!-- End Slider -->

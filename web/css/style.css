@@ -137,6 +137,6 @@ h1#logo a { width: 226px; height: 44px; background: url('images/logo.png') no-re
 
 #bottom-logo { float: right; display: inline; padding-top: 7px; }
 #bottom-logo a { background: url('images/footer-logo.png') no-repeat 0 0; width: 164px; height: 18px; display: block; }
-.image {width: 400px;height: 300px;margin-top: 10px;margin-left: 20px;}
-.image1{width: 100px; height: 67px; }
+#imageProd {width: 400px;height: 300px;margin-top: 10px;margin-left: 20px;}
+#image1Prod{width: 100px; height: 67px; }
 .espace{height: 600px;}
