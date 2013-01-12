@@ -19,7 +19,22 @@
             <to-view-id>/TestJSF.xhtml</to-view-id>
         </navigation-case>
        </navigation-rule> 
-    
+   <navigation-rule>
+        <navigation-case>
+            <from-outcome>confirme</from-outcome>
+            <to-view-id>/pagesPrincipales/home.xhtml</to-view-id>
+        </navigation-case>
+       </navigation-rule> 
+       
+       <navigation-rule>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <if>#{UtilisateurBean.estConnecter} </if>
+            <if>#{UtilisateurBean.loginHome} </if>
+            <to-view-id>/pagesPrincipales/home.xhtml</to-view-id>
+            <else> <to-view-id>/pagesPrincipales/Acheter.xhtml</to-view-id></else>
+        </navigation-case>
+       </navigation-rule>
      
     <managed-bean>
         <managed-bean-name>UtilisateurBean</managed-bean-name>
@@ -34,6 +49,11 @@
     <managed-bean>
         <managed-bean-name>managedDealBean</managed-bean-name>
         <managed-bean-class>controleur.ManagedDealBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>autoCompleteBean</managed-bean-name>
+        <managed-bean-class>controleur.style.AutoCompleteBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 </faces-config>

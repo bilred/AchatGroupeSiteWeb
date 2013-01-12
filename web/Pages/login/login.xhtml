@@ -2,11 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>login</title>
     </h:head>
     <h:body>
+        <c:set var="id" scope="view" value="#{id}" />
+            <c:set var="cat" scope="view" value="#{categorie}" />
         <h:form id="form"> 
         <p:panel id="compte" header="Connexion" style="width: 50%;margin-left: 150px;margin-top: 50px">
             <p:messages id="msg1" showDetail="true" autoUpdate="true" closable="true" />
@@ -15,7 +19,10 @@
                 <p:inputText id="identifiant" value="#{UtilisateurBean.identifiant}"/>  
                 <h:outputLabel for="pwd1" value="Mot de passe: " />  
                 <p:password id="pwd1" label="Password" required="true" value="#{UtilisateurBean.motPasse}"/> 
-                <p:commandButton value="Connexion" id="connexion" action="#{UtilisateurBean.conexion}" update="compte" ajax="false" />
+                <p:commandButton value="Connexion" id="connexion" actionListener="#{UtilisateurBean.conexion()}"  action="home" update="compte" ajax="false" >
+                <f:param  name="id" value="#{id}" />
+                <f:param  name="categorie" value="#{cat}" />
+                </p:commandButton>
                 <h:link outcome="/Pages/inscription/inscription" value="s'inscrire" style="color: red"/>
             </h:panelGrid>
             <h:outputLabel for="identifiant" value="#{UtilisateurBean.connexion}"  /> 

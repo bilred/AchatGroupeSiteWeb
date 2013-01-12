@@ -3,28 +3,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Confirmer commande</title>
-        <link type="text/css" rel="stylesheet" href="../Styles/deal/confirmerCommande.css" />
+        <link type="text/css" rel="stylesheet" href="../style/deal/confirmerCommande.css" />
     </h:head>
     <h:body>
+        <c:set var="id" scope="view" value="1" />
+        <c:set var="cat" scope="view" value="1" />
         <p:panel id="myCommande" header="Votre commande">
-            <h:panelGrid columns="4" cellpadding="10" cellspacing="30">
+            <h:panelGrid columns="3" cellpadding="10" cellspacing="30">
                 <h:outputLabel value="Deal choisi:" />
-                <h:outputLabel value="Nombre:" />
-                <h:outputLabel value="Prix par deal:" />
-                <h:outputLabel value="total:" />
-                <h:outputText value="//////"/>
+                
+                <h:outputLabel value="Nombre d'article:" />
+                
+                <h:outputLabel value="Prix par unité:" />
+                <h:outputText value="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomOffre}"/>
                 <p:selectOneMenu  effect="fade" >  
-                <f:selectItems value="AA" var="nombre" itemValue="AA"/>
+                    <f:selectItems value="#{autoCompleteBean.nombre}" var="nombre" itemValue="#{nombre}"/>
                 </p:selectOneMenu>
-                <h:outputText value="//////"/>
-                <h:outputText value="//////"/>
+                <h:outputText value="#{managedDealBean.doneCategorie(cat).doneDeal(id).prix}"/>
+                
             </h:panelGrid>
         </p:panel>
         <p:panel id="payement" header="Payement">
             <div id="payement1">
+            
+
+     
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="1">  
                 <h:outputLabel value="Mode de payement : " />  
                 <p:selectOneRadio id="options"  >  
@@ -63,9 +70,10 @@
                     <f:selectItems value="#{autoCompleteBean.annee}" var="annee" itemValue="#{annee}"/>  
                 </p:selectOneMenu>
             </h:panelGrid>
-            <div style="text-align: right">
-                <p:commandButton value="Confirmer la commande" update="myCommande,payement" ></p:commandButton>
-            </div>
+            <p:commandButton value="Connexion" id="connexion"  action="confirme" update="compte" ajax="false" >
+                <f:param  name="id" value="#{id}" />
+                <f:param  name="categorie" value="#{cat}" />
+                </p:commandButton>
            </div>
         </p:panel>
 

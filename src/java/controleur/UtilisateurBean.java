@@ -6,21 +6,22 @@ package controleur;
  */
 
 
-
-import java.awt.Panel;
-import java.awt.TextField;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.component.UIComponent;
+import javax.faces.bean.SessionScoped;
 import model.groupeClient.UtilisateurJSON;
+import org.primefaces.component.commandbutton.CommandButton;
+import org.primefaces.component.panel.Panel;
 
 /**
  *
  * @author zakaria
  */
+
+
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class UtilisateurBean {
     private String nom;
    private String prenom;
@@ -31,11 +32,97 @@ public class UtilisateurBean {
    private Date dateNaissance;
     private String identifiant;
     private String motPasse;
-   private String reponse;
+   private String reponse="";
    private String connexion;
    private Panel panelUserForm;
-   private boolean affiche;
+   private Panel panelUserForm1;
+   private Boolean loginHome=true;
+private String etatdeConnection="Se Connecter";
+private String pageDeDirection="Connection.xhtml";
 
+    public String getPageDeDirection() {
+        return pageDeDirection;
+    }
+
+    public void setPageDeDirection(String pageDeDirection) {
+        this.pageDeDirection = pageDeDirection;
+    }
+
+    public String getEtatdeConnection() {
+        return etatdeConnection;
+    }
+
+    public void setEtatdeConnection(String etatdeConnection) {
+        this.etatdeConnection = etatdeConnection;
+    }
+
+    public Boolean getLoginHome() {
+        return loginHome;
+    }
+
+    public void setLoginHome(Boolean loginHome) {
+        this.loginHome = loginHome;
+    }
+ 
+   
+   
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+   private Panel panelUserForm2;
+   private Boolean estConnecter=false;
+   private String page="Connection.xhtml";
+    private String  nvig="";
+    public String getNvig() {
+        return nvig;
+    }
+ 
+    
+    public void setNvig(String nvig) {
+        this.nvig = nvig;
+    }
+
+    public Boolean getEstConnecter() {
+        return estConnecter;
+    }
+
+    public void setEstConnecter(Boolean estConnecter) {
+        this.estConnecter = estConnecter;
+    }
+
+    public Panel getPanelUserForm2() {
+        return panelUserForm2;
+    }
+
+    public void setPanelUserForm2(Panel panelUserForm2) {
+        this.panelUserForm2 = panelUserForm2;
+    }
+   
+   private boolean affiche;
+   private CommandButton button;
+
+    public Panel getPanelUserForm1() {
+        return panelUserForm1;
+    }
+
+    public void setPanelUserForm1(Panel panelUserForm1) {
+        this.panelUserForm1 = panelUserForm1;
+    }
+
+    public CommandButton getButton() {
+        return button;
+    }
+
+    public void setButton(CommandButton button) {
+        this.button = button;
+    }
+
+   
+   
     public boolean isAffiche() {
         return affiche;       
     }
@@ -43,7 +130,10 @@ public class UtilisateurBean {
     public void setAffiche(boolean affiche) {
         this.affiche = affiche;
     }
-
+ 
+    
+    
+    
     public Panel getPanelUserForm() {
         return panelUserForm;
     }
@@ -52,11 +142,7 @@ public class UtilisateurBean {
         this.panelUserForm = panelUserForm;
     }
 
-   
-   
-
-   
-
+ 
     public Date getDateNaissance() {
         return dateNaissance;
     }
@@ -78,6 +164,7 @@ public class UtilisateurBean {
         return prenom;
     }
 
+    
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -87,6 +174,12 @@ public class UtilisateurBean {
     }
 
     public void setTitre(String titre) {
+        if(titre.equalsIgnoreCase("1")) {
+            this.titre="homme";
+        }
+ else {
+           this.titre="femme";
+        }
         this.titre = titre;
     }
 
@@ -106,10 +199,6 @@ public class UtilisateurBean {
         this.email = email;
     }
 
-   
-
-   
-
     public String getIdentifiant() {
         return identifiant;
     }
@@ -128,18 +217,7 @@ public class UtilisateurBean {
    
 
     public String getReponse() {
-         UtilisateurJSON user=new UtilisateurJSON();
- if(titre.equalsIgnoreCase("1")) {
-            titre="homme";
-        }
- else {
-            titre="femme";
-        }
-     java.sql.Date date = new java.sql.Date(dateNaissance.getTime());
-      user.create_JSON(nom,prenom,titre,ville,teletphone,date.toString(),
-       email,identifiant,motPasse);
-      
-       reponse="Utilisateur bien enregistrer";
+        
         return this.reponse;
     }
 
@@ -149,28 +227,51 @@ public class UtilisateurBean {
     
     
     public UtilisateurBean() {
+            
     }
    
     public void setNom(String nom) {
         this.nom = nom;
     }
-
     public String getNom() {
         return nom;
     }
+    
     public void enregister(){
-    this.panelUserForm.setVisible(false);
+         UtilisateurJSON user=new UtilisateurJSON();
+ 
+     java.sql.Date date = new java.sql.Date(dateNaissance.getTime());
+      user.create_JSON(nom,prenom,titre,ville,teletphone,date.toString(),
+       email,identifiant,motPasse);
+      
+       reponse="Utilisateur bien enregistrer";
+    this.panelUserForm.setRendered(false);
+    this.panelUserForm1.setRendered(false);
+    this.panelUserForm2.setRendered(true);
+    this.button.setRendered(false);
     }
 
     
+    
+    
+    public void testPages(){
+   //this.etatdeConnection="Se Connecter";
+   //this.estConnecter=false;
+   //this.page=".xhtml";
+    }
 
    public void conexion(){
          UtilisateurJSON utilisateur=new UtilisateurJSON();
         if(utilisateur.checkIdentifiant(identifiant, motPasse)) {
-             
+             this.estConnecter=true;
+             this.page="Acheter.xhtml";
+             this.nvig="Acheter";
              this.setConnexion("La connexion est etablit");
+             this.etatdeConnection="Se deconnecter";
+            this.pageDeDirection="home.xhtml";
          }
         else {
+            
              this.setConnexion("Le mot de passe ou l'identifiant est incorrect");
          }
         
@@ -184,3 +285,4 @@ public class UtilisateurBean {
         return connexion;
     }
 }
+ 

@@ -48,7 +48,7 @@
                         <li ><a href="categorie1.xhtml" title="Catégorie 1"><span>Catégorie 1</span></a></li>
                         <li><a href="categorie2.xhtml" title="Catégorie 2"><span>Catégorie 2</span></a></li>
                         <li><a href="categorie3.xhtml" title="Catégorie 3"><span>Catégorie 3</span></a></li>
-                        <li><a href="categorie4.xhtml" class="active" title="Catégorie 4"><span>Catégorie 4</span></a></li>
+                        <li><a href="categorie4.xhtml" class="active" title="Catégorie 4"><span>la Commande</span></a></li>
                     </ul>
                     <div class="cl">&nbsp;</div>
                 </div>
@@ -64,11 +64,14 @@
                         <div class="inner">
                             <div id="products">
                                 <h2>Catégorie 4</h2>
-                                <div class="espa">
-                    <ui:include src="/Pages/Deal/Acheter.xhtml"  >
+                                <div class="espac">
+                                    <h:panelGroup>
+                    <ui:include src="/Pages/Deal/confirmerCommande.xhtml"  >
                   <ui:param  name="id" value="#{param.id}" />
                   <ui:param  name="categorie" value="#{param.categorie}" />
+                     
                     </ui:include>
+                                        </h:panelGroup>
                                 </div>
                                 
                             </div>

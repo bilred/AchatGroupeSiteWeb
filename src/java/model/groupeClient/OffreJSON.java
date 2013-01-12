@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.LinkedList;
 import model.restfulclient.OffreRestfulClient;
+import model.restfulclient.UtilisateurRestfulClient;
 
 
 /**
@@ -33,11 +34,7 @@ public class OffreJSON {
     }
     
     public void create_JSON(OffreRestfulClient client) {
-        JsonObject offre = new JsonObject();   
-        offre.addProperty("prix", "45");
-        offre.addProperty("nb_achteur", 3);
-       offre.addProperty("description", "bismillah");
-        client.create_JSON(offre.toString());
+        
     }
     
     
@@ -97,7 +94,26 @@ public class OffreJSON {
         return listOffre;
     }
    
+    public void addAchteur(String id){
+    OffreRestfulClient client=new OffreRestfulClient();
     
+        
+       
+       
+       JsonObject offre;
+   offre=this.getOffre(id);
+   String nbs=offre.get("nbAcheteur").getAsString();
+   int nb=Integer.parseInt(nbs);
+   nb=nb+1;
+   offre.addProperty("nbAcheteur",String.valueOf(nb));
+   
+       
+        
+        client.edit_JSON(offre.toString());
+            
+            
+        
+    }
      
      
      

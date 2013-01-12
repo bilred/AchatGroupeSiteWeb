@@ -1,23 +1,26 @@
-package org.primefaces.examples.view;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package controleur.style;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
 
 /**
  *
- * @author nora
+ * @author zakaria
  */
-@ManagedBean (name= "autoCompleteBean")
 public class AutoCompleteBean {
-    private List<String> mois;  
+
+    /**
+     * Creates a new instance of AutoCompleteBean
+     */
+    
+    public AutoCompleteBean() {
+    }
+     private List<String> mois;  
     private List<String> annee;
     private List<Integer> nombre;
     @PostConstruct  
