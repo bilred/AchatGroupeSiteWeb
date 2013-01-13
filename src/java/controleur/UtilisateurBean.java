@@ -6,6 +6,7 @@ package controleur;
  */
 
 
+import com.google.gson.JsonObject;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -39,6 +40,19 @@ public class UtilisateurBean {
    private Boolean loginHome=true;
 private String etatdeConnection="Se Connecter";
 private String pageDeDirection="Connection.xhtml";
+private JsonObject util;
+
+    public JsonObject getUtil() {
+        return util;
+    }
+
+    public void setUtil(JsonObject util) {
+        this.util = util;
+    }
+
+    
+
+   
 
     public String getPageDeDirection() {
         return pageDeDirection;
@@ -261,7 +275,7 @@ private String pageDeDirection="Connection.xhtml";
     }
 
    public void conexion(){
-         UtilisateurJSON utilisateur=new UtilisateurJSON();
+        UtilisateurJSON utilisateur=new UtilisateurJSON();
         if(utilisateur.checkIdentifiant(identifiant, motPasse)) {
              this.estConnecter=true;
              this.page="Acheter.xhtml";
@@ -269,6 +283,7 @@ private String pageDeDirection="Connection.xhtml";
              this.setConnexion("La connexion est etablit");
              this.etatdeConnection="Se deconnecter";
             this.pageDeDirection="home.xhtml";
+            this.util=utilisateur.getUtilisateurByIdentifiant(identifiant);
          }
         else {
             

@@ -6,75 +6,70 @@
       xmlns:p="http://primefaces.org/ui">
     
     <h:body>
+        <c:set var="id" scope="view" value="1" />
+        <c:set var="cat" scope="view" value="1" />
+            <div id="slider">
+                        <!-- Begin Slider Items -->
+                        <div class="slider-items">
+                            <ul>
+                                <li>
+                                    
+                                    <img class="image" src="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienImage}" alt="First Slide Image"  />
+                                    <div class="slide-entry">
+                                        <h2></h2>
+                                        <h3>Prix : #{managedDealBean.doneCategorie(cat).doneDeal(id).prix} </h3>
+                                        <p>#{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionOffre}.</p>
+                                        <a href="#" class="more" title="Deal">Deal</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img class="image" src="../css/images/galleria/galleria2.jpg" alt="Second Slide Image" />
+                                    <div class="slide-entry">
+                                        <h2>Nom du produit 2</h2>
+                                        <h3>Prix : 40,00</h3>
+                                        <p>Déscription Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
+                                        <a href="#" class="more" title="Deal">Deal</a>
+                                    </div>
+                                </li>
 
-                
-                <c:set var="cat" scope="view" value="1" />
-                <!-- Begin Slider Items -->
-                <div class="slider-items">
-           -
-           <ul>
-
-                        <li>
-                            <p:graphicImage id="imageProd" value="#{managedDealBean.doneCategorie(cat).doneDeal(1).lienImage}"/>
-                            <div class="slide-entry">
-                                <h2>#{managedDealBean.doneCategorie(cat).doneDeal(1).nomProduit}</h2>
-                                <h3>Prix : #{managedDealBean.doneCategorie(cat).doneDeal(1).prix} €</h3>
-                                <p>#{managedDealBean.doneCategorie(cat).doneDeal(1).descriptionProduit}.</p>
-                                <a href="#" class="more" title="Deal">Deal</a>
-                            </div>
-                        </li>
-                        <li>
-                            <p:graphicImage id="imageProd" value="#{managedDealBean.doneCategorie(cat).doneDeal(2).lienImage}"/>
-                            <div class="slide-entry">
-                                <h2>#{managedDealBean.doneCategorie(cat).doneDeal(2).nomProduit}</h2>
-                                <h3>Prix : #{managedDealBean.doneCategorie(cat).doneDeal(2).prix} €</h3>
-                                <p>#{managedDealBean.doneCategorie(cat).doneDeal(2).descriptionProduit}.</p>
-                                <a href="#" class="more" title="Deal">Deal</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p:graphicImage id="imageProd" value="#{managedDealBean.doneCategorie(cat).doneDeal(3).lienImage}"/>
-                            <div class="slide-entry">
-                                <h2>#{managedDealBean.doneCategorie(cat).doneDeal(3).nomProduit}</h2>
-                                <h3>Prix : #{managedDealBean.doneCategorie(cat).doneDeal(3).prix} €</h3>
-                                <p>#{managedDealBean.doneCategorie(cat).doneDeal(3).descriptionProduit}.</p>
-                                <a href="#" class="more" title="Deal">Deal</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="cl">&nbsp;</div>
-                </div>
-                <div class="slider-nav">
-                    <ul>
-                        <li class="first">
-                            <a href="#" title="First Slide">
-                                <span>
-                                    <p:graphicImage id="image1Prod" value="#{managedDealBean.doneCategorie(cat).doneDeal(1).lienImage}"/>  
-                                </span>
-                            </a>
-                            <span class="slide-sep">&nbsp;</span>
-                        </li>
-                        <li>
-                            <a href="#" title="Second Slide">
-                                <span>
-                                    <p:graphicImage id="image1Prod" value="#{managedDealBean.doneCategorie(cat).doneDeal(2).lienImage}"/>  
-                                </span>
-                            </a>
-                            <span class="slide-sep">&nbsp;</span>
-                        </li>
-                        <li class="last">
-                            <a href="#" title="Third Slide">
-                                <span>
-                                    <p:graphicImage id="image1Prod" value="#{managedDealBean.doneCategorie(cat).doneDeal(3).lienImage}"/>  
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="cl">&nbsp;</div>
-                </div>
-                <!-- End Slider Nav -->
-            
+                                <li>
+                                    <img class="image" src="../css/images/galleria/galleria3.jpg" alt="Second Slide Image" />
+                                    <div class="slide-entry">
+                                        <h2>Nom du produit 3</h2>
+                                        <h3>Prix : 40,00</h3>
+                                        <p>Déscription Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
+                                        <a href="#" class="more" title="Deal">Deal</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="cl">&nbsp;</div>
+                        </div>
+                        <!-- End Slider Items -->
+                        <!-- Begin Slider Nav -->
+                        <div class="slider-nav">
+                            <ul>
+                                <li class="first">
+                                    <a href="#" title="First Slide">
+                                        <span><img class="image1" src="../css/images/galleria/galleria1.jpg" alt="First Slide Image" /></span>
+                                    </a>
+                                    <span class="slide-sep">&nbsp;</span>
+                                </li>
+                                <li>
+                                    <a href="#" title="Second Slide">
+                                        <span><img class="image1" src="../css/images/galleria/galleria2.jpg" alt="Second Slide Image" /></span>
+                                    </a>
+                                    <span class="slide-sep">&nbsp;</span>
+                                </li>
+                                <li class="last">
+                                    <a href="#" title="Third Slide">
+                                        <span><img class="image1" src="../css/images/galleria/galleria3.jpg" alt="Third Slide Image" /></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="cl">&nbsp;</div>
+                        </div>
+                        <!-- End Slider Nav -->
+                    </div>
     </h:body>
 </html>
 

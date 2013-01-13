@@ -10,8 +10,8 @@
         <link type="text/css" rel="stylesheet" href="../style/deal/confirmerCommande.css" />
     </h:head>
     <h:body>
-        <c:set var="id" scope="view" value="1" />
-        <c:set var="cat" scope="view" value="1" />
+        <c:set var="id" scope="view" value="#{param.id}" />
+        <c:set var="cat" scope="view" value="#{param.categorie}" />
         <p:panel id="myCommande" header="Votre commande">
             <h:panelGrid columns="3" cellpadding="10" cellspacing="30">
                 <h:outputLabel value="Deal choisi:" />
@@ -20,8 +20,8 @@
                 
                 <h:outputLabel value="Prix par unité:" />
                 <h:outputText value="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomOffre}"/>
-                <p:selectOneMenu  effect="fade" >  
-                    <f:selectItems value="#{autoCompleteBean.nombre}" var="nombre" itemValue="#{nombre}"/>
+                <p:selectOneMenu  effect="fade"  >  
+                    <f:selectItems value="#{autoCompleteBean.nombre}" var="nombre" />
                 </p:selectOneMenu>
                 <h:outputText value="#{managedDealBean.doneCategorie(cat).doneDeal(id).prix}"/>
                 
@@ -70,10 +70,12 @@
                     <f:selectItems value="#{autoCompleteBean.annee}" var="annee" itemValue="#{annee}"/>  
                 </p:selectOneMenu>
             </h:panelGrid>
-            <p:commandButton value="Connexion" id="connexion"  action="confirme" update="compte" ajax="false" >
-                <f:param  name="id" value="#{id}" />
-                <f:param  name="categorie" value="#{cat}" />
-                </p:commandButton>
+            <h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/Facture.xhtml" onclick="#{managedDealBean.toto(id)}" >
+                                
+                        <h2>Confirmer payment</h2>
+                           <f:param  name="id" value="#{param.id}" />
+                           <f:param  name="categorie" value="#{param.categorie}" />
+                           </h:outputLink>
            </div>
         </p:panel>
 

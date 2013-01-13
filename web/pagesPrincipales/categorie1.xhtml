@@ -2,13 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Catégorie 1</title>
+        <title>Shopping</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <link rel="shortcut icon" href="../css/images/favicon.ico" />
         <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+         <link type="text/css" rel="stylesheet" href="../Pages/Styles/deal/dealcss.css" />
         <script src="../js/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
+        
         <script src="../js/jquery.jcarousel.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../js/cufon-yui.js" type="text/javascript"></script>
         <script src="../js/Verdana_400-Verdana_700.font.js" type="text/javascript"></script>
@@ -48,8 +52,8 @@
                         <li class="first"><a href="home.xhtml" title="Home"><span>Home</span></a></li>
                         <li ><a href="categorie1.xhtml" class="active" title="Shopping"><span>Shopping</span></a></li>
                         <li><a href="categorie2.xhtml" title="Voyage"><span>Voyage</span></a></li>
-                        <li><a href="categorie3.xhtml" title="Catégorie 3"><span>Catégorie 3</span></a></li>
-                        <li><a href="categorie4.xhtml" title="Catégorie 4"><span>Catégorie 4</span></a></li>
+                        <li><a href="categorie3.xhtml" title="Ticket"><span>Ticket</span></a></li>
+                        
                     </ul>
                     <div class="cl">&nbsp;</div>
                 </div>
@@ -58,37 +62,60 @@
                 <!-- Begin Main -->
                 <div id="main">
                     <!-- Begin Slider -->
-                    <div id="slider">
+                    
+                     <c:set var="id" scope="view" value="1" />
+                     <c:set var="id2" scope="view" value="2" />
+                     <c:set var="id3" scope="view" value="3" />
+                     <c:set var="cat" scope="view" value="1" />
+                     <c:set var="cat2" scope="view" value="2" />
+                     <c:set var="cat3" scope="view" value="2" />
+            <div id="slider">
                         <!-- Begin Slider Items -->
                         <div class="slider-items">
                             <ul>
                                 <li>
-                                    <img class="image" src="../css/images/galleria/galleria1.jpg" alt="First Slide Image"  />
+                                    
+                                    <img class="image" src="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienSlide}" alt="First Slide Image"  />
                                     <div class="slide-entry">
-                                        <h2>Nom du produit 1</h2>
-                                        <h3>Prix : 40,00</h3>
-                                        <p>Déscription Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
+                                        <h2>#{managedDealBean.doneCategorie(cat).doneDeal(id).nomProduit}</h2>
+                                        <h3>Prix : #{managedDealBean.doneCategorie(cat).doneDeal(id).prix} euro </h3>
+                                        <p>#{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionOffre}.</p>
+                                        
+                                        <h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/#{UtilisateurBean.page}"  >
+                                            <div class="more"/>
+                                
+                                        <f:param  name="id" value="#{id}" /> 
+                                        <f:param  name="categorie" value="#{cat}" />
+                                         </h:outputLink>
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="../css/images/galleria/galleria2.jpg" alt="Second Slide Image" />
+                                    <img class="image" src="#{managedDealBean.doneCategorie(cat2).doneDeal(id2).lienSlide}" alt="First Slide Image"  />
                                     <div class="slide-entry">
-                                        <h2>Nom du produit 2</h2>
-                                        <h3>Prix : 40,00</h3>
-                                        <p>Déscription Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
+                                        <h2>#{managedDealBean.doneCategorie(cat2).doneDeal(id2).nomProduit}</h2>
+                                        <h3>Prix : #{managedDealBean.doneCategorie(cat2).doneDeal(id2).prix} euro </h3>
+                                        <p>#{managedDealBean.doneCategorie(cat2).doneDeal(id2).descriptionOffre}.</p>
+                                        <h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/#{UtilisateurBean.page}"  >
+                                            <div class="more"/>
+                                
+                                        <f:param  name="id" value="#{id2}" /> 
+                                        <f:param  name="categorie" value="#{cat2}" />
+                                         </h:outputLink>
                                     </div>
                                 </li>
 
                                 <li>
-                                    <img class="image" src="../css/images/galleria/galleria3.jpg" alt="Second Slide Image" />
+                                    <img class="image" src="#{managedDealBean.doneCategorie(cat3).doneDeal(id3).lienSlide}" alt="First Slide Image"  />
                                     <div class="slide-entry">
-                                        <h2>Nom du produit 3</h2>
-                                        <h3>Prix : 40,00</h3>
-                                        <p>Déscription Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
-                                        <a href="#" class="more" title="Deal">Deal</a>
-                                    </div>
+                                        <h2>#{managedDealBean.doneCategorie(cat3).doneDeal(id3).nomProduit}</h2>
+                                        <h3>Prix : #{managedDealBean.doneCategorie(cat3).doneDeal(id3).prix} euro </h3>
+                                        <p>#{managedDealBean.doneCategorie(cat3).doneDeal(id3).descriptionOffre}.</p>
+                                        <a href="#" class="more" title="Deal">Deal</a><h:outputLink  value="/AchatGroupeClient/faces/pagesPrincipales/#{UtilisateurBean.page}"  >
+                                            <div class="more"/>
+                                
+                                        <f:param  name="id" value="#{id3}" /> 
+                                        <f:param  name="categorie" value="#{cat3}" />
+                                        </h:outputLink></div>
                                 </li>
                             </ul>
                             <div class="cl">&nbsp;</div>
@@ -99,19 +126,19 @@
                             <ul>
                                 <li class="first">
                                     <a href="#" title="First Slide">
-                                        <span><img class="image1" src="../css/images/galleria/galleria1.jpg" alt="First Slide Image" /></span>
+                                        <span><img class="image1" src="#{managedDealBean.doneCategorie(cat).doneDeal(id).lienSlide}" alt="First Slide Image" /></span>
                                     </a>
                                     <span class="slide-sep">&nbsp;</span>
                                 </li>
                                 <li>
                                     <a href="#" title="Second Slide">
-                                        <span><img class="image1" src="../css/images/galleria/galleria2.jpg" alt="Second Slide Image" /></span>
+                                        <span><img class="image1" src="#{managedDealBean.doneCategorie(cat).doneDeal('2').lienSlide}" alt="Second Slide Image" /></span>
                                     </a>
                                     <span class="slide-sep">&nbsp;</span>
                                 </li>
                                 <li class="last">
                                     <a href="#" title="Third Slide">
-                                        <span><img class="image1" src="../css/images/galleria/galleria3.jpg" alt="Third Slide Image" /></span>
+                                        <span><img class="image1" src="#{managedDealBean.doneCategorie(cat).doneDeal('3').lienSlide}" alt="Third Slide Image" /></span>
                                     </a>
                                 </li>
                             </ul>
@@ -119,6 +146,7 @@
                         </div>
                         <!-- End Slider Nav -->
                     </div>
+                   
                     <!-- End Slider -->
                     <!-- Begin Content -->
                     <div id="content">

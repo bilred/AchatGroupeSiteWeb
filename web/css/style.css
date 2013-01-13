@@ -88,7 +88,7 @@ h1#logo a { width: 226px; height: 44px; background: url('images/logo.png') no-re
 #slider .slider-items ul li .slide-entry h2 { text-transform: uppercase; font-size: 28px; letter-spacing: -1px; padding-bottom: 2px; }
 #slider .slider-items ul li .slide-entry h3 { font-size: 18px; color: #7a9826; padding-bottom: 22px; padding-left: 3px; }
 #slider .slider-items ul li .slide-entry p { padding-bottom: 22px; padding-left: 5px; }
-#slider .slider-items ul li .slide-entry a.more { float: right; display: inline; width: 200px; height: 64px; margin-right: -55px; display: block; background: url('images/deal.jpg') no-repeat 0 0; font-size: 0; line-height: 0; text-indent: -4000px; }
+#slider .slider-items ul li .slide-entry div.more { float: right; display: inline; width: 200px; height: 64px; margin-right: -55px; display: block; background: url('images/deal.jpg') no-repeat 0 0; font-size: 0; line-height: 0; text-indent: -4000px; }
 #slider .jcarousel-prev,
 #slider .jcarousel-next { position: absolute; right: -30px; display: block; font-size: 0; line-height: 0; text-indent: -4000px; width: 21px; height: 21px; top: 50%; cursor: pointer; }
 #slider .jcarousel-prev { margin-top: -13px; background: url('images/slide-arrow-up.png') no-repeat 0 0; }
@@ -137,6 +137,6 @@ h1#logo a { width: 226px; height: 44px; background: url('images/logo.png') no-re
 
 #bottom-logo { float: right; display: inline; padding-top: 7px; }
 #bottom-logo a { background: url('images/footer-logo.png') no-repeat 0 0; width: 164px; height: 18px; display: block; }
-#imageProd {width: 400px;height: 280px;margin-top: 10px;margin-left: 20px;}
-#image1Prod{width: 100px; height: 67px; }
+.image {width: 400px;height: 280px;margin-top: 10px;margin-left: 20px;}
+.image1{width: 100px; height: 67px; }
 .espace{height: 600px;}

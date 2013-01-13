@@ -70,5 +70,22 @@ public class UtilisateurJSON {
     
     return false;
     }
+     public JsonObject getUtilisateurByIdentifiant(String identifiant){
+        UtilisateurRestfulClient client=new UtilisateurRestfulClient();
+    String response=client.findAll_JSON(String.class);
+        JsonParser parser = new JsonParser();
+        Object utilisateurs = parser.parse(response);
+        JsonObject sallesJSON = (JsonObject) utilisateurs;
+        JsonArray sallesArray = (JsonArray) sallesJSON.get("utilisateur");
+        for (int i = 0; i < sallesArray.size(); i++) {
+            JsonObject utilisateur = (JsonObject) sallesArray.get(i);
+            String id=utilisateur.get("identifiant").getAsString();
+            if(id.equals(identifiant)  ){
+            return utilisateur;
+            }
+          
+    }
     
+    return null;
+    }
 }

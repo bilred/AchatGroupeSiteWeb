@@ -7,7 +7,7 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Catégorie 4</title>
+        <title>Facture</title>
        
         <link rel="shortcut icon" href="../css/images/favicon.ico" />
         <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
@@ -48,7 +48,7 @@
                         <li ><a href="categorie1.xhtml" title="Shopping"><span>Shopping</span></a></li>
                         <li><a href="categorie2.xhtml" title="Voyage"><span>Voyage</span></a></li>
                         <li><a href="categorie3.xhtml" title="Ticket"><span>Ticket</span></a></li>
-                        <li><a href="categorie4.xhtml" class="active" title="Connection"><span>Connection</span></a></li>
+                        <li><a href="categorie4.xhtml" class="active" title="Facture"><span>Facture</span></a></li>
                     </ul>
                     <div class="cl">&nbsp;</div>
                 </div>
@@ -63,15 +63,12 @@
                         <!-- Begin Inner -->
                         <div class="inner">
                             <div id="products">
-                                <h2>Connection</h2>
-                                <div class="espac">
-                                    <h:panelGroup>
-                    <ui:include src="/Pages/login/login.xhtml"  >
-                  
-                       <ui:param name="id"  value="#{param.id}"  />
-                       <ui:param name="categorie"  value="#{param.categorie}"  />
+                                <h2>Catégorie 4</h2>
+                                <div class="espa">
+                    <ui:include src="/Pages/facture/facture.xhtml"  >
+                  <ui:param  name="id" value="#{param.id}" />
+                  <ui:param  name="categorie" value="#{param.categorie}" />
                     </ui:include>
-                                        </h:panelGroup>
                                 </div>
                                 
                             </div>

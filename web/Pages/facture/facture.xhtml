@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <c:set var="id" scope="view" value="#{param.id}" />
+        <c:set var="cat" scope="view" value="#{param.categorie}" />
+        <p>
+                Bonjour M #{UtilisateurBean.util.get('nom').getAsString()},<br/>
+Nous vous informons que votre commande a été prise en compte et elle sera expédiée<br/>
+si le nombre d’acheteur atteint le nombre  attendus. Si vous avez besoin de consulter <br/>
+l'état de votre commande ou si vous devez la modifier, veuillez vous rendre sur la page<br/>
+d'accueil de notre site puis cliquez sur Votre compte en haut de toutes les pages ou si <br/>
+vous souhaitez retourner un article, visualiser ou modifier une autre commande, veuillez<br/>
+consulter  vos commandes .<br/>
+            </p>
+        <h:panelGrid id="grid1" columns="2" style="margin-bottom:10px">  
+            
+                        <h:outputLabel  value="nom:  " /> 
+                        <h:outputLabel  value="#{UtilisateurBean.util.get('nom').getAsString()}" />
+                        <h:outputLabel  value="Prenom: " />  
+                        <h:outputLabel  value="#{UtilisateurBean.util.get('prenom').getAsString()}" />
+                        <h:outputLabel  value="ville:  " />   
+                        <h:outputLabel  value="#{UtilisateurBean.util.get('ville').getAsString()}" />  
+                      <h:outputLabel  value="Nom Produit: " />
+                        <h:outputLabel  value="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomProduit}" />
+                        <h:outputLabel  value="Prix ttc :  " />   
+                        <h:outputLabel  value="#{managedDealBean.doneCategorie(cat).doneDeal(id).prix}" /> 
+                        <h:form>
+                            <p:commandButton value="Page d'acceille" 
+                                 rendered="true"
+                             
+                                 id="Naviguer" 
+                                 action="home" 
+                                 style="margin-left: 150px;margin-top: 10px" 
+                                 
+                                 ajax="false"/>
+                        </h:form>
+                    </h:panelGrid>
+    </h:body>
+</html>
+

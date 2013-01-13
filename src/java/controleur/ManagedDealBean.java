@@ -19,6 +19,25 @@ public class ManagedDealBean {
    private LinkedList<String> idlisteCategorie;
    private LinkedList<CategorieClasse> listeCategorie;
    private int size;
+    private String itemChoisi;
+    private String prixtt;
+
+    public String getPrixtt() {
+        return prixtt;
+    }
+
+    public void setPrixtt(String prixtt) {
+        this.prixtt = prixtt;
+    }
+    
+
+    public String getItemChoisi() {
+        return itemChoisi;
+    }
+
+    public void setItemChoisi(String itemChoisi) {
+        this.itemChoisi = itemChoisi;
+    }
 
     public LinkedList<String> getIdlisteCategorie() {
         return idlisteCategorie;
@@ -51,8 +70,12 @@ public class ManagedDealBean {
         id=id-1;
     return this.listeCategorie.get(id);
     }
+    public void toto(String id){
+    OffreJSON oo=new OffreJSON();
+    oo.addAchteur(id);
+    //this.prixtt=String.valueOf(Float.parseFloat(oo.getOffre(id).get("prix").getAsString())*3);
+    }
    
-    
     
     public ManagedDealBean() {
        

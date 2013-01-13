@@ -4,6 +4,7 @@
  */
 package controleur;
 
+import controleur.style.GalleriaBean;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import model.groupeClient.OffreJSON;
@@ -24,6 +25,36 @@ public class DealClass {
     private String nbAchteur;
     private String resultat;
     private String lienImage;
+    private String lienSlide;
+    private GalleriaBean galeria;
+    private String  prixttc;
+   
+    
+    public String getPrixttc() {
+        return prixttc;
+    }
+
+    public void setPrixttc(String prixttc) {
+        this.prixttc = prixttc;
+    }
+    
+    
+    public GalleriaBean getGaleria() {
+        return galeria;
+    }
+
+    public void setGaleria(GalleriaBean galeria) {
+        this.galeria = galeria;
+    }
+
+    public String getLienSlide() {
+        return lienSlide;
+    }
+
+    public void setLienSlide(String lienSlide) {
+        this.lienSlide = lienSlide;
+    }
+    
 
     public String getLienImage() {
         return lienImage;
@@ -116,20 +147,22 @@ public class DealClass {
         
     }
     
+    
     public DealClass(String id){
     this.idDeal=id;
     OffreJSON offre=new OffreJSON();
     PhotoJSON photo=new PhotoJSON();
-        
+    difference dif=new difference(); 
+    this.galeria=new GalleriaBean(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("idProdui").getAsString());
         this.setNomProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("nom").getAsString());
         this.setPrix(offre.getOffre(getIdDeal()).get("prix").getAsString());
         this.setDescriptionProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("description").getAsString());
         this.setDescriptionOffre(offre.getOffre(getIdDeal()).get("description").getAsString());
         this.setNomOffre(offre.getOffre(getIdDeal()).get("nom").getAsString());
         this.setNbAchteur(offre.getOffre(getIdDeal()).get("nbAcheteur").getAsString());
-        this.setTempRest(offre.getOffre(getIdDeal()).get("date").getAsString());
+       this.setTempRest(dif.increment(offre.getOffre("1").get("date").getAsString().substring(0, 19).replace("T", " ")));
         this.setLienImage("/Pages/images/"+photo.getPhotoById(photo.getPhotosIdByProduit(getIdDeal()).getFirst()).get("lien").getAsString());
-    
+        this.setLienSlide("../Pages/images/"+photo.getPhotoById(photo.getPhotosIdByProduit(getIdDeal()).getFirst()).get("lien").getAsString());
     }
     
 }

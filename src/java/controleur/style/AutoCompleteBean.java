@@ -23,6 +23,8 @@ public class AutoCompleteBean {
      private List<String> mois;  
     private List<String> annee;
     private List<Integer> nombre;
+    
+    
     @PostConstruct  
     public void init() {  
         mois = new ArrayList<String>();  

@@ -15,8 +15,8 @@
         <c:set var="id" scope="view" value="#{id}" />
         <c:set var="cat" scope="view" value="#{categorie}" />
         <p:panel id="panel2" header="#{managedDealBean.doneCategorie(cat).doneDeal(id).nomOffre}" style="margin-bottom:10px;" >
-                   <p:galleria value="#{galleriaBean.images}" var="image">  
-                    <p:graphicImage value="/Pages/images/galleria/#{image}" />  
+            <p:galleria value="#{managedDealBean.doneCategorie(cat).doneDeal(id).galeria.images}" var="image">  
+                    <p:graphicImage value="/Pages/images/#{image}" />  
                 </p:galleria>
                     <h3> #{managedDealBean.doneCategorie(cat).doneDeal(id).descriptionOffre}</h3>
                 </p:panel>
