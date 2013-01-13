@@ -24,7 +24,7 @@ import com.sun.jersey.api.client.WebResource;
 public class UtilisateurRestfulClient {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/AchatGroupeSiteRestful/webresources";
+    private static final String BASE_URI = "http://localhost:8080/AchatGroupeSRestful/webresources";
 
     public UtilisateurRestfulClient() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();

@@ -29,7 +29,6 @@ public class DealClass {
     private GalleriaBean galeria;
     private String  prixttc;
    
-    
     public String getPrixttc() {
         return prixttc;
     }
