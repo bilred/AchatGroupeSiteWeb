@@ -22,7 +22,7 @@ import org.primefaces.component.panel.Panel;
 
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class UtilisateurBean {
     private String nom;
    private String prenom;

@@ -27,11 +27,13 @@
                     <p:panel id="panel" header="Deal" style="margin-bottom:10px;" >
                         <h:panelGrid columns="2" cellpadding="3">  
                             <h:outputLabel value="Prix:" />  
-                            #{managedDealBean.doneCategorie(cat).doneDeal(id).prix}
+                            <h3> #{managedDealBean.doneCategorie(cat).doneDeal(id).prix} euro</h3>
                             <h:outputLabel value="Temps restant:" />  
-                          #{managedDealBean.doneCategorie(cat).doneDeal(id).tempRest}
+                         <h3> #{managedDealBean.doneCategorie(cat).doneDeal(id).tempRest}</h3>
                             <h:outputLabel value="Nombre d'acheteur:" />  
-                            #{managedDealBean.doneCategorie(cat).doneDeal(id).nbAchteur}
+                          <h3>  #{managedDealBean.doneCategorie(cat).doneDeal(id).nbAchteur} Achteurs</h3>
+                          <h:outputLabel value="Remise :" />  
+                          <h3>  #{managedDealBean.doneCategorie(cat).doneDeal(id).remise} %</h3>
                         </h:panelGrid> 
 
                     </p:panel>

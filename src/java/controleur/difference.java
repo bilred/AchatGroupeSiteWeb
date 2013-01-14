@@ -77,7 +77,7 @@ minute--;}
 
 
 
-count=""+annee+" ans \t"+mois+" mois \t"+jour+"jours \t"+heure+"heures \t"+minute+"minutes \t"+seconde+"secondes \t";
+count=mois+" mois \t"+jour+"jours \t"+heure+"heures \t"+minute+"minutes \t"+seconde+"secondes \t";
    return count;
       }  
 }

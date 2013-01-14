@@ -28,6 +28,15 @@ public class DealClass {
     private String lienSlide;
     private GalleriaBean galeria;
     private String  prixttc;
+   private String remise;
+
+    public String getRemise() {
+        return remise;
+    }
+
+    public void setRemise(String remise) {
+        this.remise = remise;
+    }
    
     public String getPrixttc() {
         return prixttc;
@@ -157,6 +166,7 @@ public class DealClass {
         this.setPrix(offre.getOffre(getIdDeal()).get("prix").getAsString());
         this.setDescriptionProduit(offre.getOffre(getIdDeal()).get("produitidProdui").getAsJsonObject().get("description").getAsString());
         this.setDescriptionOffre(offre.getOffre(getIdDeal()).get("description").getAsString());
+        this.setRemise(offre.getOffre(getIdDeal()).get("achatgroupeidAchatgroupe").getAsJsonObject().get("remise").getAsString());
         this.setNomOffre(offre.getOffre(getIdDeal()).get("nom").getAsString());
         this.setNbAchteur(offre.getOffre(getIdDeal()).get("nbAcheteur").getAsString());
        this.setTempRest(dif.increment(offre.getOffre("1").get("date").getAsString().substring(0, 19).replace("T", " ")));
